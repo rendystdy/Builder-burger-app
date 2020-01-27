@@ -3,7 +3,7 @@
 ![demo-app](https://github.com/rendystdy/Builder-burger-app/blob/master/demo-app.gif)
 
 ###  How to use
--   Run`https://github.com/rendystdy/Builder-burger-app.git` in the terminal
+-   git clone `https://github.com/rendystdy/Builder-burger-app.git` in the terminal
 -   Run `cd Builder-burger-app` npm install `or yarn install` in the terminal
 -   Run npm start `or yarn start` in terminal
 
