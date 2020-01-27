@@ -42,7 +42,7 @@ export const checkAuthTimeOut = expirationTime => {
 
 export const auth = (email, password, isSignUp) => {
   return dispatch => {
-    const apiKey = 'AIzaSyCMwd_RKeKzoipCZQZvUsJG3a6YC6E00pA';
+    const apiKey = process.env.REACT_APP_API_KEY;
     let urlSignUp = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${apiKey}`;
     let urlSignIn = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${apiKey}`;
     const auhtData = {
