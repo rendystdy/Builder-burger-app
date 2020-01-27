@@ -1,6 +1,6 @@
 # BURGER BUILDER WEB APP
 
-![demo-app](https://github.com/rendystdy/Builder-burger-app/blob/master/demo-app.gif)
+![demo-app](https://github.com/rendystdy/Builder-burger-app/blob/master/BURGER-BUILDER-APP.gif)
 
 ###  How to use
 -   git clone `https://github.com/rendystdy/Builder-burger-app.git` in the terminal
