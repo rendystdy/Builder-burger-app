@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 
 import Order from '../../components/Order/Order';
@@ -7,49 +7,50 @@ import withErrorHandling from '../../hoc/withErrorHandling/withErrorHandling';
 import Spinner from '../../components/UI/Spinner/Spinner';
 import { fetchOrders } from '../../store/actions/index';
 
-export class Orders extends Component {
-  componentDidMount() {
-    // axios
-    //   .get('/orders.json')
-    //   .then(response => {
-    //     const fetchOrders = [];
-    //     for (const key in response.data) {
-    //       fetchOrders.push({
-    //         ...response.data[key],
-    //         id: key
-    //       });
-    //     }
-    //     this.setState({
-    //       orders: fetchOrders,
-    //       loading: false
-    //     });
-    //   })
-    //   .catch(error => {
-    //     this.setState({ error: true, loading: false });
-    //   });
-    const { onFetchOrders, token, userId } = this.props;
+const Orders = props => {
+  const { onFetchOrders, token, userId } = props;
+  useEffect(() => {
     onFetchOrders(token, userId);
+  }, [onFetchOrders, token, userId]);
+  // axios
+  //   .get('/orders.json')
+  //   .then(response => {
+  //     const fetchOrders = [];
+  //     for (const key in response.data) {
+  //       fetchOrders.push({
+  //         ...response.data[key],
+  //         id: key
+  //       });
+  //     }
+  //     this.setState({
+  //       orders: fetchOrders,
+  //       loading: false
+  //     });
+  //   })
+  //   .catch(error => {
+  //     this.setState({ error: true, loading: false });
+  //   });
+  // const { onFetchOrders, token, userId } = this.props;
+  // onFetchOrders(token, userId);
+  // }
+  const { orders, loading } = props;
+
+  let getOrders = <Spinner />;
+
+  if (!loading) {
+    getOrders = orders.map(order => {
+      return (
+        <Order
+          key={order.id}
+          ingredients={order.ingredients}
+          price={order.price.totalPrice}
+        />
+      );
+    });
   }
-  render() {
-    const { orders, loading } = this.props;
 
-    let getOrders = <Spinner />;
-
-    if (!loading) {
-      getOrders = orders.map(order => {
-        return (
-          <Order
-            key={order.id}
-            ingredients={order.ingredients}
-            price={order.price.totalPrice}
-          />
-        );
-      });
-    }
-
-    return <div>{getOrders}</div>;
-  }
-}
+  return <div>{getOrders}</div>;
+};
 
 const mapStateToProps = state => {
   return {

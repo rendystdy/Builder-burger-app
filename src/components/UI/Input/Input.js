@@ -9,6 +9,7 @@ const Input = props => {
     elementConfig: { options },
     changed
   } = props;
+  
   let inputElement = null;
   const inputClasses = [classes.InputElement];
   let validationError = null;

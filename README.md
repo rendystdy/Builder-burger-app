@@ -1,5 +1,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+![demo-app](https://github.com/rendystdy/Builder-burger-app/blob/master/BURGER-BUILDER-APP.mov)
+
 ## Available Scripts
 
 In the project directory, you can run:
